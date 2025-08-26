@@ -1,5 +1,5 @@
 server:
-  addr: ":8081"
+  addr: ":8080"
 
 embedding:
   cycle_days: 28
@@ -19,7 +19,7 @@ storage:
   sqlite_vec_path: ""
 
 map:
-  mapbox_token: "pk.eyJ1IjoiZ3JlYXRlcmVuZ2luZWVyaW5nIiwiYSI6ImNtNHNtMngxbTAyZGwya3B5dGQzc3gxZWMifQ.gS_pMNTT9QAf2Tlb4J2IKA"
+  mapbox_token: "pk.eyJ..."
   initial_view_state:
     latitude: 37.8
     longitude: -85.0
