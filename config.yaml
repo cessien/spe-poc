@@ -1,0 +1,31 @@
+server:
+  addr: ":8081"
+
+embedding:
+  cycle_days: 28
+  h3_levels: [5,6,7,8,9,10,11]
+  resolutions:
+    service_stop_time: 1024
+    service_window_start: 1024
+    service_window_duration: 1024
+    pinned_accounts: 64
+    agents_available: 128
+    agent_start_locations: 64
+  overshoot: 0.15
+  base_frequency: 16
+
+storage:
+  db_path: "./data.db"
+  sqlite_vec_path: ""
+
+map:
+  mapbox_token: "pk.eyJ1IjoiZ3JlYXRlcmVuZ2luZWVyaW5nIiwiYSI6ImNtNHNtMngxbTAyZGwya3B5dGQzc3gxZWMifQ.gS_pMNTT9QAf2Tlb4J2IKA"
+  initial_view_state:
+    latitude: 37.8
+    longitude: -85.0
+    zoom: 6
+
+ui:
+  enable_embedding_tab: true
+  enable_spectral_tab: true
+  enable_heatmap_tab: true

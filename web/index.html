@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SPE — Scenario Builder & Embedding Viz</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+    <script src="https://unpkg.com/mapbox-gl@3.3.0/dist/mapbox-gl.js"></script>
+    <link href="https://unpkg.com/mapbox-gl@3.3.0/dist/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <script src="https://unpkg.com/d3@7"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    
+    <!-- Dynamically load and execute the JSX -->
+    <script>
+      // Wait for all libraries to load
+      window.addEventListener('load', async () => {
+        try {
+          // Fetch the JSX source code
+          const response = await fetch('/app.jsx');
+          const jsxCode = await response.text();
+          
+          // Transform JSX to JS using Babel
+          const jsCode = Babel.transform(jsxCode, {
+            presets: ['react']
+          }).code;
+          
+          // Execute the transformed code
+          eval(jsCode);
+          
+          console.log('App loaded successfully');
+        } catch (error) {
+          console.error('Failed to load app:', error);
+          document.getElementById('app').innerHTML = '<div style="padding: 20px; color: red;">Failed to load application. Check console for details.</div>';
+        }
+      });
+    </script>
+  </body>
+</html>
